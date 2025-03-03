@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Allow-Origin', ['http://localhost:3000', 'https://tech-rhythm.vercel.app']);
+    res.header('Access-Control-Allow-Origin', 'https://tech-rhythm.vercel.app');
     next();
 });
 
