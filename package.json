@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "build": "npm install && npm run lint",
+    "lint": "eslint .",
+    "clean": "rm -rf node_modules"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +24,9 @@
     "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.x",
+    "eslint": "^8.x.x"
   }
 }
