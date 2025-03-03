@@ -73,7 +73,7 @@ exports.Login = async (req, res) => {
         
         res.cookie("token", token, {
             maxAge: 3600000,      // 1 hour
-            httpOnly: true,       // Prevent XSS attacks
+            httpOnly: false,       // Prevent XSS attacks
             secure: true,         // Ensure HTTPS only
             sameSite: "Strict",   // Prevent CSRF attacks
             path: "/",
