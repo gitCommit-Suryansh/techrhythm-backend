@@ -6,7 +6,7 @@ const userSchema=mongoose.Schema({
     college:{type:String,required:true},
     phone:{type:String,required:true},
     password:{type:String,required:true},
-    passType:{type:String,enum:['Silver','Gold','Platinum'],required:false},
+    passType:{type:String,enum:['SILVER','GOLD','PLATINUM'],required:false},
     passAmount:{type:String,required:false},
     paymentDetails:{type:Object,default:null,required:false},
     passId:{type:String,default:null,required:false},
