@@ -33,12 +33,31 @@ app.use(expressSession({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Credentials', 'true');
+//     res.header('Access-Control-Allow-Origin', 'https://tech-rhythm.vercel.app');
+//     // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+//     next();
+// });
+
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Allow-Origin', 'https://tech-rhythm.vercel.app');
-    // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header("Access-Control-Allow-Credentials", "true");
+    
+    const allowedOrigins = [
+        "https://tech-rhythm.vercel.app",  // Production frontend
+        "http://localhost:3000"            // Development frontend
+    ];
+
+    if (allowedOrigins.includes(req.headers.origin)) {
+        res.header("Access-Control-Allow-Origin", req.headers.origin);
+    }
+
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    
     next();
 });
+
 
 app.use('/auth',authRoutes) 
 app.use('/api',phonepayRoutes)
