@@ -11,6 +11,7 @@ const authRoutes=require('./routes/Auth')
 const phonepayRoutes=require('./routes/Phonepay')
 const registerRoutes=require('./routes/Register')
 const userRoutes=require('./routes/User')
+const verifyRoutes=require('./routes/Verify')
 
 
 connectToDB()
@@ -34,8 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true');
-    // res.header('Access-Control-Allow-Origin', 'https://tech-rhythm.vercel.app');
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Origin', 'https://tech-rhythm.vercel.app');
+    // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     next();
 });
 
@@ -43,6 +44,7 @@ app.use('/auth',authRoutes)
 app.use('/api',phonepayRoutes)
 app.use('/register',registerRoutes)
 app.use('/user',userRoutes)
+app.use('/verify',verifyRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
