@@ -19,14 +19,17 @@
     "config": "^3.3.12",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.11.0"
+    "mongoose": "^8.11.0",
+    "sha256": "^0.2.0",
+    "uniqid": "^5.4.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.x",
-    "eslint": "^8.x.x"
+    "eslint": "^8.x.x",
+    "nodemon": "^3.0.x"
   }
 }
