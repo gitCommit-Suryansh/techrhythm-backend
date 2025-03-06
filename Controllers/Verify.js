@@ -23,6 +23,8 @@ exports.verifyPass = async (req, res) => {
 
 exports.checkIn = async (req, res) => {
     const { userId } = req.body;
+    console.log("Received request body:", req.body); // Debugging
+
 
     try {
         // Find the user by userId
