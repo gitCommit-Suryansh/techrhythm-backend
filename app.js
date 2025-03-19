@@ -17,7 +17,7 @@ const verifyRoutes=require('./routes/Verify')
 connectToDB()
 
 const corsOptions = {
-    origin: ["http://localhost:3000","https://tech-rhythm.vercel.app"],
+    origin: ["http://localhost:3000","https://tech-rhythm.vercel.app","https://techrhythm.xyz"],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
@@ -33,19 +33,15 @@ app.use(expressSession({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Credentials', 'true');
-//     res.header('Access-Control-Allow-Origin', 'https://tech-rhythm.vercel.app');
-//     // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-//     next();
-// });
+
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Credentials", "true");
     
     const allowedOrigins = [
         "https://tech-rhythm.vercel.app",  // Production frontend
-        "http://localhost:3000"            // Development frontend
+        "http://localhost:3000",
+        "https://techrhythm.xyz"
     ];
 
     if (allowedOrigins.includes(req.headers.origin)) {
