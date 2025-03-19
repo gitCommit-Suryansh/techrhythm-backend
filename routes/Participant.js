@@ -4,5 +4,6 @@ const participantController=require('../Controllers/ParticipantController')
 
 router
     .get('/allparticipants',participantController.allparticipants)
+    .post('/updatepassid',participantController.updatepassid)
 
 module.exports=router
