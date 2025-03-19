@@ -23,9 +23,22 @@ exports.updatepassid=async(req,res)=>{
         }
         user.passId = passId;
         user.passType = passType;
+        switch (passType) {
+            case 'BRONZE':
+                user.passAmount = '199';
+                break;
+            case 'SILVER':
+                user.passAmount = '599';
+                break;
+            case 'GOLD':
+                user.passAmount = '999';
+                break;
+            default:
+                user.passAmount = null;
+        }
         await user.save();
-        return res.status(200).json({ message: "Pass ID and Type updated successfully" });
+        return res.status(200).json({ message: "Pass ID, Type, and Amount updated successfully" });
     } catch (err) {
-        return res.status(500).json({ message: "Error updating pass ID and Type" });
+        return res.status(500).json({ message: "Error updating pass ID, Type, and Amount" });
     }
 }
