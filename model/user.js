@@ -8,7 +8,6 @@ const userSchema=mongoose.Schema({
     password:{type:String,required:true},
     passType:{type:String,enum:['SILVER','GOLD','BRONZE'],required:false},
     passAmount:{type:String,required:false},
-    paymentDetails:{type:Object,default:null,required:false},
     passId:{type:String,default:null,required:false},
     checkedIn:{type:Boolean,default:false}
 })
