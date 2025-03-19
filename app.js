@@ -11,6 +11,7 @@ const authRoutes=require('./routes/Auth')
 const phonepayRoutes=require('./routes/Phonepay')
 const registerRoutes=require('./routes/Register')
 const userRoutes=require('./routes/User')
+const participantRoutes=require('./routes/Participant')
 const verifyRoutes=require('./routes/Verify')
 
 
@@ -60,6 +61,7 @@ app.use('/api',phonepayRoutes)
 app.use('/register',registerRoutes)
 app.use('/user',userRoutes)
 app.use('/verify',verifyRoutes)
+app.use('/participants',participantRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
