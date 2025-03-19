@@ -7,7 +7,7 @@ exports.allparticipants=async(req,res)=>{
         if(!users){
             return res.status(201).json({"message":"Error fetching participants"})
         }
-        return res.status(200).json({"message":"Participants fetched Successully"});
+        return res.status(200).json({"message":"Participants fetched Successfully",users});
     }
     catch(err){
         return res.status(401).json({"message":"Error fetching participants"});
