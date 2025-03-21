@@ -72,38 +72,7 @@ exports.updatePass = async (req, res) => {
     //   const data = xlsx.utils.sheet_to_json(sheet);
 
       let updatedCount = 0;
-    //   for (let row of data) {
-    //     const { Email, Mobile, Amount, Reciept } = row;
-    //     if (!Email || !Reciept || !Amount) continue;
-
-    //     let user = await usermodel.findOne({ email: Email }) || await usermodel.findOne({ phone: Mobile });
-
-    //     if (user && !user.passId) {
-    //       user.passId = Reciept;
-    //       user.passType = getPassType(Amount);
-    //       await user.save();
-    //       updatedCount++;
-    //     }
-    //   }
-    // for (let row of data) {
-    //     console.log("Processing row:", row);  // 🛠 Debug: Print each row
-    //     const { Email, Mobile, Amount, Reciept } = row;
-    //     if (!Email || !Reciept || !Amount) continue;
-
-    //     let user = await usermodel.findOne({ email: Email }) || await usermodel.findOne({ phone: Mobile });
-
-    //     if (!user) {
-    //       console.log(`❌ No matching user found for Email: ${Email} or Mobile: ${Mobile}`);
-    //     } else if (user.passId) {
-    //       console.log(`⚠️ User ${Email} already has a passId: ${user.passId}`);
-    //     } else {
-    //       user.passId = Reciept;
-    //       user.passType = getPassType(Amount);
-    //       await user.save();
-    //       updatedCount++;
-    //       console.log(`✅ Updated user ${Email} with passId: ${Reciept} and passType: ${user.passType}`);
-    //     }
-    //   }
+   
     const data = xlsx.utils.sheet_to_json(sheet, { header: 1 }); // Read as an array of arrays
 
     // Extract headers from the second row (index 1)
@@ -126,6 +95,10 @@ exports.updatePass = async (req, res) => {
       const Amount = row["Amount"];
       const Email = row["Email"];
       const Mobile = row["Mobile"];
+      const Status = row["Status"];
+
+      if (Status !== "Success") continue;  
+
 
       if (!Email || !Reciept || !Amount) continue;
 
@@ -139,7 +112,6 @@ exports.updatePass = async (req, res) => {
         user.passAmount=Amount;
         await user.save();
         updatedCount++;
-        console.log(`✅ Updated user ${Email} with passId: ${Reciept}`);
       }
     }
 
