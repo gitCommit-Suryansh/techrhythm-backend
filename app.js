@@ -62,6 +62,11 @@ app.use('/register',registerRoutes)
 app.use('/user',userRoutes)
 app.use('/verify',verifyRoutes)
 app.use('/participants',participantRoutes)
+app.get('/ping', (req, res) => {
+    res.json('Working');
+});
+
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
