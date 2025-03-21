@@ -89,7 +89,7 @@ exports.updatePass = async (req, res) => {
     });
 
     for (let row of formattedData) {
-      console.log("Processing row:", row);
+      // console.log("Processing row:", row);
 
       const Reciept = row["Reciept"];
       const Amount = row["Amount"];
