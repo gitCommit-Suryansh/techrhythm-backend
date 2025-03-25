@@ -4,7 +4,7 @@ const { generateToken } = require("../utils/GenerateToken");
 
 exports.Signup = async (req, res) => {
     try {
-        const { fullName, email, phone, college, password } = req.body;
+        const { fullName, email, phone, college, password ,referral} = req.body;
         
         // Check if all fields are present
         if (!fullName || !email || !phone || !college || !password) {
@@ -30,7 +30,8 @@ exports.Signup = async (req, res) => {
             email,
             phone,
             college,
-            password    // storing password directly
+            password ,   // storing password directly
+            referral
         });
 
         return res.status(200).json({

@@ -9,7 +9,8 @@ const userSchema=mongoose.Schema({
     passType:{type:String,enum:['SILVER','GOLD','BRONZE','PLATINUM'],required:false},
     passAmount:{type:String,required:false},
     passId:{type:String,default:null,required:false},
-    checkedIn:{type:Boolean,default:false}
+    checkedIn:{type:Boolean,default:false},
+    referral:{type:String,default:none}
 })
 
 module.exports=mongoose.model('user',userSchema)
