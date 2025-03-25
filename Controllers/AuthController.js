@@ -6,6 +6,7 @@ exports.Signup = async (req, res) => {
     try {
         const { fullName, email, phone, college, password ,referral} = req.body;
         
+        
         // Check if all fields are present
         if (!fullName || !email || !phone || !college || !password) {
             return res.status(400).json({
