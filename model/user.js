@@ -10,7 +10,6 @@ const userSchema=mongoose.Schema({
     passAmount:{type:String,required:false},
     passId:{type:String,default:null,required:false},
     checkedIn:{type:Boolean,default:false},
-    referral:{type:String,default:none}
 })
 
 module.exports=mongoose.model('user',userSchema)
